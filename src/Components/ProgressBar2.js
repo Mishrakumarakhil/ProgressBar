@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const ProgressBar2 = () => {
   const [progress, setProgressMade] = useState(0);
-  const [animation, setAnimation] = useState(false);
   const timer = useRef(null);
 
   useEffect(() => {
@@ -13,7 +12,6 @@ const ProgressBar2 = () => {
   }, [progress]);
 
   const handleClick = useCallback(() => {
-    setAnimation(true);
     clearInterval(timer.current);
     timer.current = setInterval(() => {
       setProgressMade((prev) => prev + 1);
@@ -22,7 +20,6 @@ const ProgressBar2 = () => {
 
   const handleReset = useCallback(() => {
     setProgressMade(0);
-    setAnimation(false);
   }, []);
   return (
     <div className="progress_two_heading">
